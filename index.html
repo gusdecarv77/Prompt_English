@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt English | English for AI and Tech</title>
+    <!-- Importing the Share Tech Mono font -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #000000;
+            --main-green: #00FF41; /* The Terminal Green you requested */
+            --amber-alert: #d97725; /* High contrast color for REGISTER */
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--main-green);
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            box-sizing: border-box;
+            /* Subtle text shadow for that CRT glow effect */
+            text-shadow: 0px 0px 4px rgba(0, 255, 65, 0.4); 
+        }
+
+        /* --- Header Prompt Area --- */
+        header {
+            margin-bottom: 3rem;
+        }
+        .prompt-line {
+            margin: 0;
+            padding: 0.2rem 0;
+            font-size: 1.1rem;
+        }
+
+        /* --- Main Layout --- */
+        main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-grow: 1;
+        }
+        .content-area {
+            max-width: 60%;
+        }
+
+        /* --- Logo & Identity --- */
+        .identity-block {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        .logo-placeholder {
+            font-size: 4rem;
+            margin-right: 1.5rem;
+            /* This is where your microchip SVG will go later */
+        }
+        .title-text h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: normal;
+        }
+        .title-text p {
+            margin: 0.2rem 0;
+            font-size: 1.2rem;
+        }
+
+        /* --- Typewriter Effect --- */
+        .typewriter-container {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            min-height: 150px; /* Prevents layout shifting */
+        }
+        .cursor {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* --- Block Menus --- */
+        .menu-area {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            width: 280px;
+        }
+        .menu-btn {
+            background: transparent;
+            border: 2px solid var(--main-green);
+            color: var(--main-green);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.3rem;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .menu-btn:hover {
+            background-color: var(--main-green);
+            color: var(--bg-color);
+        }
+        .menu-btn.register {
+            border-color: var(--amber-alert);
+            color: var(--amber-alert);
+        }
+        .menu-btn.register:hover {
+            background-color: var(--amber-alert);
+            color: var(--bg-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <p class="prompt-line">root@PROMPT_ENGLISH:/AI_AND_TECH/ > deploy language.core</p>
+        <p class="prompt-line">Initializing modules... [LOADED]</p>
+        <p class="prompt-line">Launching core language interface... [OK]</p>
+    </header>
+
+    <main>
+        <div class="content-area">
+            <div class="identity-block">
+                <div class="logo-placeholder">
+                    [&nbsp;&nbsp;] 
+                </div>
+                <div class="title-text">
+                    <h1>Prompt English:</h1>
+                    <h1>English for AI and Tech</h1>
+                    <p>Gustavo de Carvalho_</p>
+                    <p>&lt;Linguistic Engineer&gt;</p>
+                </div>
+            </div>
+            
+            <div class="typewriter-container" id="typewriter"></div>
+        </div>
+
+        <div class="menu-area">
+            <a href="#" class="menu-btn">[ COURSES ]</a>
+            <a href="#" class="menu-btn">[ RESOURCES ]</a>
+            <a href="#" class="menu-btn register">[ REGISTER ]</a>
+            <a href="#" class="menu-btn">[ CONTACT ]</a>
+            <a href="#" class="menu-btn">[ FORUM ]</a>
+        </div>
+    </main>
+
+    <script>
+        const textToType = "Learning English is coding your path to global fluency. Syntax. Vocabulary. Real-time interaction. Master the language of communication.";
+        const typingSpeed = 40; // Milliseconds per character
+        let charIndex = 0;
+        const targetElement = document.getElementById("typewriter");
+
+        function typeWriter() {
+            if (charIndex < textToType.length) {
+                // Add the next character and keep the blinking cursor at the end
+                targetElement.innerHTML = textToType.substring(0, charIndex + 1) + '<span class="cursor">_</span>';
+                charIndex++;
+                setTimeout(typeWriter, typingSpeed);
+            }
+        }
+
+        // 1200ms delay before typing starts to simulate system boot time
+        setTimeout(typeWriter, 1200);
+    </script>
+</body>
+</html>
